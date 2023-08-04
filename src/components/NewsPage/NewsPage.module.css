@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 30px;
+    gap: 35px;
+}
+
+.title {
+    font-size: 38px;
+}
+
+.link {
+  color:rgb(70, 157, 211);
+  text-decoration: underline;
+}

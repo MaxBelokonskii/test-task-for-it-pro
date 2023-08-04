@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom"
+import { Dashboard, NewsPage } from "./components"
+import { FilterProvider } from "./contexts/filterContext"
+import { PaginationProvider } from "./contexts/paginationContext"
+import { RequestNewsProvider } from "./contexts/RequestNewsContext"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<RequestNewsProvider>
+			<PaginationProvider>
+				<FilterProvider>
+					<BrowserRouter>
+						<Routes>
+							<Route path='/' element={<Navigate to='/news' />} />
+							<Route path='/news' element={<Dashboard />} />
+							<Route path='/news/:title' element={<NewsPage />} />
+						</Routes>
+					</BrowserRouter>
+				</FilterProvider>
+			</PaginationProvider>
+		</RequestNewsProvider>
+	)
 }
 
-export default App;
+export default App

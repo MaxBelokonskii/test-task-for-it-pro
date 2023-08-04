@@ -1,0 +1,65 @@
+.container{
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 20px;
+    gap: 20px;
+    width: 100%;
+}
+
+.change_per_page_block{ 
+    border: 1px solid rgb(227, 226, 226);
+    border-radius: 3px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 30px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.change_page_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.change_page_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+}
+
+.select_options {
+    position: absolute;
+    padding: 5px 10px;
+    border: 1px solid rgb(227, 226, 226);
+    border-radius: 5px;
+    top: -160px;
+    z-index: 10;
+    background: white;
+}
+
+.select_option {
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.select_option:hover {
+    background: rgb(227, 226, 226);
+}
+
+.active {
+    background: rgb(118, 118, 118);
+    color: white;
+}
