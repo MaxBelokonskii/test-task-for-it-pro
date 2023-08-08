@@ -3,9 +3,9 @@ import { INews } from "../utils/types"
 
 interface RequestNewsContextType {
 	news: INews[]
-	updateNews: (value: INews[]) => void
+	setNews: (value: INews[]) => void
 	totalItems: number
-	updateTotalItems: (value: number) => void
+	setTotalItems: (value: number) => void
 }
 
 const RequestNewsContext = createContext<RequestNewsContextType | undefined>(undefined)
@@ -26,13 +26,5 @@ export const RequestNewsProvider: React.FC<RequestNewsProviderProps> = ({ childr
 	const [news, setNews] = useState<INews[]>([])
 	const [totalItems, setTotalItems] = useState<number>(1)
 
-	const updateNews = (newValue: INews[]) => {
-		setNews(newValue)
-	}
-
-	const updateTotalItems = (newValue: number) => {
-		setTotalItems(newValue)
-	}
-
-	return <RequestNewsContext.Provider value={{ news, updateNews, totalItems, updateTotalItems }}>{children}</RequestNewsContext.Provider>
+	return <RequestNewsContext.Provider value={{ news, setNews, totalItems, setTotalItems }}>{children}</RequestNewsContext.Provider>
 }

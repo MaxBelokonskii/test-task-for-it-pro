@@ -2,9 +2,9 @@ import React, { createContext, useContext, useState } from "react"
 
 interface PaginationContextType {
 	perPage: number
-	updatePerPage: (value: number) => void
+	setPerPage: (value: number) => void
 	page: number
-	updatePage: (value: number) => void
+	setPage: (value: number) => void
 }
 
 const PaginationContext = createContext<PaginationContextType | undefined>(undefined)
@@ -25,12 +25,5 @@ export const PaginationProvider: React.FC<PaginationProviderProps> = ({ children
 	const [perPage, setPerPage] = useState<number>(10)
 	const [page, setPage] = useState<number>(1)
 
-	const updatePerPage = (newValue: number) => {
-		setPerPage(newValue)
-	}
-	const updatePage = (newValue: number) => {
-		setPage(newValue)
-	}
-
-	return <PaginationContext.Provider value={{ perPage, updatePerPage, page, updatePage }}>{children}</PaginationContext.Provider>
+	return <PaginationContext.Provider value={{ perPage, setPerPage, page, setPage }}>{children}</PaginationContext.Provider>
 }

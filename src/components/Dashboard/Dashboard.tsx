@@ -13,7 +13,7 @@ export const Dashboard: FC = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const { section, category, country, language, search, searchIn, sort } = useFilterContext()
 	const { page, perPage } = usePaginationContext()
-	const { updateNews, updateTotalItems } = useRequestNewsContext()
+	const { setNews, setTotalItems } = useRequestNewsContext()
 
 	const paramsDefault = {
 		page: page,
@@ -37,8 +37,8 @@ export const Dashboard: FC = () => {
 			try {
 				setIsLoading(true)
 				const res = await getNews(section, { ...paramsDefault, ...sectionParams })
-				updateNews(res.articles)
-				updateTotalItems(res.totalResults)
+				setNews(res.articles)
+				setTotalItems(res.totalResults)
 			} catch (e) {
 				console.error(e)
 			} finally {
